@@ -523,12 +523,14 @@ h3 {
 }
 
 .h4,
-.h5,
-h4,
-h5 {
-    font-size: 11px
+h4{
+    font-size: 15px
 }
 
+.h5,
+h5 {
+    font-size: 12px
+}
 .h6,
 h6 {
     font-size: 10px
@@ -4329,7 +4331,7 @@ tbody.collapse.in {
 }
 
 .navbar-default .navbar-text {
-    color: #777
+    color: rgb(6, 6, 6)
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -4443,9 +4445,10 @@ fieldset[disabled] .navbar-default .btn-link:hover {
     background-color: transparent
 }
 
+/* Change nav bar textcolor */
 .navbar-inverse .navbar-nav>li>a,
 .navbar-inverse .navbar-text {
-    color: #9d9d9d
+    color: #000             
 }
 
 .navbar-inverse .navbar-nav>.active>a,

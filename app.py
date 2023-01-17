@@ -39,3 +39,7 @@ def write_data_csv(data):
     with open('db.csv', 'a', newline='') as csvfile:
         db_writer = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         db_writer.writerow([email,subject,message])
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
