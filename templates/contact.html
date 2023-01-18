@@ -12,8 +12,8 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/logo.png">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/logo.png"> -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
 
     <title>CONTACT US</title>
 
@@ -39,9 +39,10 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav ">
                         <li><a href="/" title="">01 : Home</a></li>
-                        <li><a href="./works.html" title="">02 : Works</a></li>
-                        <li><a href="./about.html" title="">03 : About me</a></li>
-                        <li><a href="./contact.html" title="">04 : Contact</a></li>
+                        <li><a href="./profiles.html" title="">02 : Profiles</a></li>
+                        <li><a href="./projects.html" title="">03 : Projects</a></li>
+                        <li><a href="./about.html" title="">04 : About me</a></li>
+                        <li><a href="./contact.html" title="">05 : Contact</a></li>
                     </ul>
 
 
@@ -55,7 +56,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="section-container-spacer text-center">
-                        <h1 class="h2">03 : Contact me</h1>
+                        <h1 class="h2">Contact me</h1>
                     </div>
 
                     <div class="row">
@@ -76,30 +77,32 @@
                                     </div>
                                     <div class="col-md-5 address-container">
                                         <ul class="list-unstyled">
-                                            <li>
+                                            <!-- <li>
                                                 <span class="fa-icon">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                          </span><a href="https://youtube.com/codebreakerstech" target="_blank">CODE BREAKERS</a>
-                                            </li>
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                          </span><a href="https://wa.me/7709640685"> <img alt="Chat on WhatsApp"></a> 
+                                            </li> -->
                                             <li>
                                                 <span class="fa-icon">
                             <i class="fa fa-at" aria-hidden="true"></i>
-                          </span>codesankalp@gmail.com
+                          </span>mohitgaikwad2804@gmail.com
                                             </li>
                                             <li>
                                                 <span class="fa-icon">
                             <i class="fa fa fa-map-marker" aria-hidden="true"></i>
-                          </span>INDIA
+                          </span>Pune, India
                                             </li>
                                         </ul>
-                                        <h3>Follow us on social networks</h3>
-                                        <a href="http://www.facebook.com/CODE BREAKERS" title="" class="fa-icon">
+                                        <h3>Reach me on social media</h3>
+                                        
+                                        <!-- <a href="http://www.facebook.com/CODE BREAKERS" title="" class="fa-icon">
                                             <i class="fa fa-facebook"></i>
+                                        </a>-->
+                                        <a href="https://wa.me/7709640685" title="" class="fa-icon">
+                                            <i class="fa fa-whatsapp"></i> 
                                         </a>
-                                        <a href="http://www.twitter.com/CODEBREAKERS20" title="" class="fa-icon">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        <a href="http://www.linkedin.com/dassankalp" title="" class="fa-icon">
+                                        
+                                        <a href="https://www.linkedin.com/in/mohitgaikwad2804/" title="" class="fa-icon">
                                             <i class="fa fa-linkedin"></i>
                                         </a>
 
@@ -114,9 +117,33 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-5--v1.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h1 class="chatbox__heading--header">Chat Assistant</h1>
+                        <h1 class="chatbox__description--header">Ask me about Mohit</h1>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Ask me some questions...", size="4">
+                    <button class="chatbox__send--footer send__button"><img src="static/assets/images/send-icon.png" /></button>
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button><img src="static/assets/images/chat_icon.png" /></button>
+            </div>
+        </div>
+    </div>
 
-
-    <footer class="footer-container text-center">
+    <!-- <footer class="footer-container text-center">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -124,7 +151,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
@@ -147,6 +174,7 @@
 
 -->
     <script type="text/javascript" src="./static/main.js"></script>
+    
 </body>
 
 </html>
