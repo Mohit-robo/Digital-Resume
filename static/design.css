@@ -174,7 +174,7 @@ input::-moz-focus-inner {
 }
 
 input {
-    line-height: normal
+    line-height: normal;
 }
 
 input[type=checkbox],
@@ -422,7 +422,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Roboto Mono, Helvetica, Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     line-height: 1.1;
     color: #000
@@ -537,7 +537,7 @@ h6 {
 }
 
 p {
-    margin: 0 0 9.5px
+    font-size: 14px;
 }
 
 .lead {
@@ -2116,7 +2116,7 @@ output {
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #999
+    color: #999;
 }
 
 .form-control::-ms-expand {
@@ -6007,6 +6007,7 @@ body {
     display: flex;
     overflow-y: scroll;
     flex-direction: column-reverse;
+    font-size: small;
 }
 
 .messages__item {
@@ -6107,11 +6108,13 @@ body {
 }
 
 .chatbox__footer input {
-    width: 80%;
+    width: 400px;
     border: none;
     padding: 10px 10px;
     border-radius: 30px;
     text-align: left;
+    font-size: 13px;
+    line-height: 2;
 }
 
 .chatbox__send--footer {
