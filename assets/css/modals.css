@@ -1,0 +1,273 @@
+/* ============================================================
+   PROJECT MODALS & ADDITIONS — appended to home.css scope
+   ============================================================ */
+
+/* ---- Large video for personal project cards ---- */
+.project-card__video--large {
+  height: 300px;
+}
+
+.project-card__video--large iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius);
+}
+
+/* Personal cards span full grid width on wider screens */
+.personal-card {
+  grid-column: span 1;
+}
+
+/* Expand hint */
+.project-card__expand-hint {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* Pro cards show pointer */
+.pro-card { cursor: pointer; }
+
+/* ---- Contact CTA (replaces consulting section) ---- */
+.contact-cta {
+  text-align: center;
+  padding: 3.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center top, rgba(0,194,168,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.contact-cta__label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.contact-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -1px;
+  margin-bottom: 0.75rem;
+}
+
+.contact-cta__sub {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.contact-cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Modal overlay ---- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modal-in 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2.5rem;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.75rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color var(--transition);
+  z-index: 1;
+}
+
+.modal__close:hover { color: var(--accent); }
+
+/* Scrollbar inside modal */
+.modal::-webkit-scrollbar { width: 4px; }
+.modal::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 2px; }
+
+/* Modal content styles (reuse cs__ classes from case-studies.css) */
+.modal__content .modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.35rem;
+}
+
+.modal__content .modal-index {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 2rem;
+}
+
+.modal__content .modal-section {
+  margin-bottom: 1.75rem;
+}
+
+.modal__content .modal-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal__content .modal-label::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.modal__content .modal-text {
+  color: var(--text-dim);
+  line-height: 1.75;
+  font-size: 0.9rem;
+}
+
+.modal__content .modal-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal__content .modal-item {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.modal__content .modal-item::before {
+  content: '//';
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+
+.modal__content .modal-outcomes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.modal__content .modal-outcome {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+.modal__content .modal-outcome-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.modal__content .modal-outcome-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.modal__content .modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.modal__content .modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid rgba(0,194,168,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+
+.modal__content .modal-link:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .modal { padding: 1.5rem; }
+  .project-card__video--large { height: 220px; }
+}

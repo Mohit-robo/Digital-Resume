@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Gaikwad | Case Studies</title>
+  <meta name="description" content="Technical case studies highlighting real-world computer vision implementations by Mohit Gaikwad.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/case-studies.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Mohit<span>.</span></a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="expertise.html">Expertise</a>
+        <a href="case-studies.html" class="active">Case Studies</a>
+    <a href="mailto:mohitgaikwad2804@gmail.com" class="nav__cta">Get in Touch</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav__mobile" id="mobile-nav">
+    <button class="nav__mobile-close" id="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="expertise.html">Expertise</a>
+    <a href="case-studies.html" class="active">Case Studies</a>
+    <a href="mailto:mohitgaikwad2804@gmail.com" class="nav__cta">Book Consultation</a>
+  </div>
+
+  <main>
+    <header class="cs-header container reveal">
+      <h1 class="cs-header__title">Case Studies</h1>
+      <p class="cs-header__sub">Deep technical proof of production deployments across industrial inspection and video analytics.</p>
+    </header>
+
+    <div class="container cs-layout">
+      <!-- MAIN CONTENT -->
+      <div class="cs-content">
+
+        <!-- CASE STUDY 0: SENTINEL -->
+        <article id="sentinel" class="case-study reveal">
+          <div class="cs__index">Case Study 00</div>
+          <h2 class="cs__title">Sentinel: Real-Time Traffic Monitoring Platform</h2>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Problem</div>
+            <p>Traffic authorities needed simultaneous monitoring of 100+ live RTSP camera streams with real-time event detection — including traffic signal violations, vehicle classification, occupancy, ANPR, and face recognition — without frame-drop or alert delay at production scale.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Approach</div>
+            <p>Built a distributed streaming pipeline using NVIDIA DeepStream as the primary GPU accelerated inference backbone, decoupled via Kafka for event routing and Redis for low-latency state management. Triton Inference Server handled model serving at FP16/INT8 precision for all concurrent models.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Architecture</div>
+            <div class="cs__pipeline">
+              <div class="pipeline-steps">
+                <div class="pipeline-step"><div class="pipeline-step__box">100x RTSP Feeds</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">DeepStream Pipeline</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Triton (TensorRT)</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Kafka Event Bus</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Redis State Store</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Alert &amp; Dashboard</div></div>
+              </div>
+            </div>
+            <div style="margin-top:1rem;">
+              <p style="color:var(--text-muted);font-size:0.875rem;">Analytics modules running in parallel per stream:</p>
+              <div class="cs__challenges" style="margin-top:0.75rem;">
+                <div class="cs__challenge-item">Face Recognition — cross-view identity matching across multiple camera angles</div>
+                <div class="cs__challenge-item">ANPR — license plate detection, OCR, and vehicle owner lookup</div>
+                <div class="cs__challenge-item">Vehicle Classification — type, color, and make identification</div>
+                <div class="cs__challenge-item">Occupancy Detection — zone-level counting and threshold alerting</div>
+                <div class="cs__challenge-item">Traffic Signal Violation — red-light run detection with timestamp logging</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Challenges &amp; Solutions</div>
+            <div class="cs__challenges">
+              <div class="cs__challenge-item">Scaling to 100 simultaneous streams without GPU memory overflow &rarr; multi-process DeepStream bins with batching and stream mux optimization</div>
+              <div class="cs__challenge-item">Low-latency event delivery across modules &rarr; Kafka partitioning with per-stream topics and consumer groups</div>
+              <div class="cs__challenge-item">Model serving for 5+ concurrent analytics tasks per stream &rarr; Triton dynamic batching with per-model concurrency controls</div>
+              <div class="cs__challenge-item">Real-time face matching across non-overlapping views &rarr; FAISS-backed feature vector store for sub-millisecond similarity search</div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Outcome</div>
+            <div class="cs__outcomes">
+              <div class="outcome-card"><div class="outcome-card__value">100</div><div class="outcome-card__label">Live RTSP Streams</div></div>
+              <div class="outcome-card"><div class="outcome-card__value">30 FPS</div><div class="outcome-card__label">Maintained per Stream</div></div>
+              <div class="outcome-card"><div class="outcome-card__value">5+</div><div class="outcome-card__label">Parallel Analytics Modules</div></div>
+              <div class="outcome-card"><div class="outcome-card__value">&lt;500ms</div><div class="outcome-card__label">Alert Latency</div></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 1: BOTTLE INSPECTION -->
+        <article id="bottle" class="case-study reveal">
+          <div class="cs__index">Case Study 01</div>
+          <h2 class="cs__title">High-Speed Bottle Inspection</h2>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Problem</div>
+            <p>Manual inspection bottleneck in high-speed manufacturing &mdash; could not keep pace with 200 units/minute production rate. High false-acceptance rate causing quality escapes.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Approach</div>
+            <p>Real-time anomaly detection pipeline with GPU-accelerated inference. Unsupervised + supervised hybrid approach to handle label-scarce manufacturing environment.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Architecture</div>
+            <div class="cs__pipeline">
+              <div class="pipeline-steps">
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Camera Feed</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Preprocessing</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Anomaly Detection (TensorRT)</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Defect Classification</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Accept / Reject</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Challenges &amp; Solutions</div>
+            <div class="cs__challenges">
+              <div class="cs__challenge-item">Maintaining inference latency under 200ms at 200 units/min</div>
+              <div class="cs__challenge-item">Low defect sample availability &rarr; used unsupervised + semi-supervised methods</div>
+              <div class="cs__challenge-item">Real-world lighting and surface variation</div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Outcome</div>
+            <div class="cs__outcomes">
+              <div class="outcome-card">
+                <div class="outcome-card__value">&gt;95%</div>
+                <div class="outcome-card__label">Inspection Accuracy</div>
+              </div>
+              <div class="outcome-card">
+                <div class="outcome-card__value">&lt;1.5%</div>
+                <div class="outcome-card__label">False Acceptance Rate</div>
+              </div>
+              <div class="outcome-card">
+                <div class="outcome-card__value">180ms</div>
+                <div class="outcome-card__label">Inference Latency</div>
+              </div>
+              <div class="outcome-card">
+                <div class="outcome-card__value">~90%</div>
+                <div class="outcome-card__label">Manual Effort Reduced</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- CASE STUDY 2: REID -->
+        <article id="reid" class="case-study reveal">
+          <div class="cs__index">Case Study 02</div>
+          <h2 class="cs__title">Multi-Camera Drive-Thru ReID (Wobot.ai)</h2>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Problem</div>
+            <p>Tracking individual vehicles across non-overlapping camera views in drive-thru lanes to measure dwell time and wait-time patterns. Identity switches caused analytics to be unreliable.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Approach</div>
+            <p>Custom multi-camera ReID pipeline with tracker integration and iterative retraining on real-world failure cases.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Architecture</div>
+            <div class="cs__pipeline">
+              <div class="pipeline-steps">
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">RTSP Feeds (1..N)</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Detection</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Single-cam Tracker</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">ReID Matching</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Cross-cam Graph</div>
+                  <div class="pipeline-step__arrow">&rarr;</div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__box">Analytics Engine</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Challenges &amp; Solutions</div>
+            <div class="cs__challenges">
+              <div class="cs__challenge-item">Occlusion, lighting variation, vehicle appearance similarity</div>
+              <div class="cs__challenge-item">Cross-camera view gap (non-overlapping FOV)</div>
+              <div class="cs__challenge-item">Scale: 500+ live cameras across 20+ locations</div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Outcome</div>
+            <div class="cs__outcomes">
+              <div class="outcome-card">
+                <div class="outcome-card__value">2&ndash;5%</div>
+                <div class="outcome-card__label">Identity Mismatch (Down from 15%)</div>
+              </div>
+              <div class="outcome-card">
+                <div class="outcome-card__value">500+</div>
+                <div class="outcome-card__label">Live Cameras</div>
+              </div>
+              <div class="outcome-card">
+                <div class="outcome-card__value">20+</div>
+                <div class="outcome-card__label">Locations in Production</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- CASE STUDY 3: WRIST-WATCH -->
+        <article id="watch" class="case-study reveal">
+          <div class="cs__index">Case Study 03</div>
+          <h2 class="cs__title">Wrist-Watch Defect Detection</h2>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Problem</div>
+            <p>Manual 360&deg; visual inspection of wrist-watch cases taking 30 seconds per unit &mdash; creating a production bottleneck and returning inconsistent results due to inspector fatigue and subjective judgment. Multiple surface types (bezel, case back, lugs, crystal) each required independent scrutiny, making automation non-trivial.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Approach</div>
+            <p>Dual-camera synchronized rig engineered to capture all watch surfaces in a single pass. A defect detection model was trained to recognize micro-scratches, dents, coating failures, and misalignments per surface zone. Hardware trigger synchronization eliminated frame drift between the two cameras.</p>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Architecture</div>
+            <div class="cs__pipeline">
+              <div class="pipeline-steps">
+                <div class="pipeline-step"><div class="pipeline-step__box">Dual Camera Rig</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">HW-Sync Capture</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Surface Alignment</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Defect Detection Model</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Per-surface Defect Map</div><div class="pipeline-step__arrow">&rarr;</div></div>
+                <div class="pipeline-step"><div class="pipeline-step__box">Pass / Fail Decision</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Defect Types Covered</div>
+            <div class="cs__challenges">
+              <div class="cs__challenge-item">Micro-scratches on bezel and case back</div>
+              <div class="cs__challenge-item">Coating delamination and discoloration</div>
+              <div class="cs__challenge-item">Dents, deformations, and edge chips</div>
+              <div class="cs__challenge-item">Crystal cloudiness and surface contamination</div>
+              <div class="cs__challenge-item">Lug misalignment and finishing inconsistencies</div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Challenges &amp; Solutions</div>
+            <div class="cs__challenges">
+              <div class="cs__challenge-item">Dual-camera synchronization without frame drift &rarr; hardware trigger with sub-millisecond sync tolerance</div>
+              <div class="cs__challenge-item">Multiple surface types with different defect signatures &rarr; per-surface specialized detection heads</div>
+              <div class="cs__challenge-item">Cycle-time constraint (must be faster than manual 30s) &rarr; parallel inference on both camera feeds with batched model execution</div>
+              <div class="cs__challenge-item">High-gloss reflective surface making consistent imaging difficult &rarr; custom diffuse lighting rig engineered to eliminate specular reflections</div>
+            </div>
+          </div>
+
+          <div class="cs__block">
+            <div class="cs__block-label">Outcome</div>
+            <div class="cs__outcomes">
+              <div class="outcome-card"><div class="outcome-card__value">8s</div><div class="outcome-card__label">Per Unit (was 30s)</div></div>
+              <div class="outcome-card"><div class="outcome-card__value">73%</div><div class="outcome-card__label">Cycle-time Reduction</div></div>
+              <div class="outcome-card"><div class="outcome-card__value">360&deg;</div><div class="outcome-card__label">Surface Coverage</div></div>
+              <div class="outcome-card"><div class="outcome-card__value">5+</div><div class="outcome-card__label">Defect Types Detected</div></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- SIDEBAR TOC -->
+      <aside class="cs-toc reveal">
+        <div class="cs-toc__title">Case Studies</div>
+        <div class="cs-toc__links">
+          <a href="#sentinel" class="cs-toc__link">Sentinel Traffic Platform</a>
+          <a href="#bottle" class="cs-toc__link">High-Speed Bottle Inspection</a>
+          <a href="#reid" class="cs-toc__link">Multi-Camera Drive-Thru ReID</a>
+          <a href="#watch" class="cs-toc__link">Wrist-Watch Defect Detection</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer container reveal">
+    <div class="footer__inner">
+      <div class="footer__left">
+        Mohit<span>.</span>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/Mohit-robo" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/mohit-gaikwad-688479193/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </a>
+        <a href="https://medium.com/@mohit_gaikwad" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path></svg>
+          Medium
+        </a>
+        <a href="mailto:mohitgaikwad2804@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
